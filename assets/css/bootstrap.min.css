@@ -1,12 +1,10 @@
-html 
-{
+html {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%
 }
 
-body 
-{
+body {
     margin: 0
 }
 
@@ -1373,7 +1371,6 @@ a:focus, a:hover {
 }
 
 a:focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px
 }
@@ -2972,7 +2969,6 @@ select[multiple], select[size] {
 }
 
 input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px
 }
@@ -3484,7 +3480,6 @@ select[multiple].input-lg, textarea.input-lg {
 
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus,
 .btn:active:focus, .btn:focus {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px
 }
@@ -7482,3 +7477,6 @@ button.close {
         display: none !important
     }
 }
+
+/*# sourceMappingURL=bootstrap.min.css.map */
+

@@ -596,7 +596,7 @@ section {
     bottom: -10px;
 }
 
-#contact .form-control{
+#Contacto .form-control{
     border: 0;
     background: transparent;
     border-bottom: 1px solid #101010;
@@ -606,26 +606,26 @@ section {
     -moz-border-radius:0;
 }
 
-#contact input, #contact textarea {
+#Contacto input, #Contacto textarea {
     text-indent: 10px;
 }
 
-#contact input.form-control{
+#Contacto input.form-control{
     height: 50px;
 }
 
-#contact .form-control:focus {
+#Contacto .form-control:focus {
     border-bottom: 1px solid #aaa;
     box-shadow: none;
 }
 
-#contact .form-control-feedback {
+#Contacto .form-control-feedback {
     left: 0;
     height: 50px;
     line-height: 50px;
 }
 
-#contact .message .form-control-feedback {
+#Contacto .message .form-control-feedback {
     line-height: 33px;
 }
 

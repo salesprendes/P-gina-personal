@@ -35,6 +35,7 @@
          <ul class="menu-ul">
             <li> <a href="#Informacion">Acerca de mí</a> </li>
             <li> <a href="#Educacion">Educación</a> </li>
+            <li> <a href="#Contacto">Contacto</a> </li>
          </ul>
          <div class="menu-holder">
             <div class="menu-bar"></div>
@@ -288,9 +289,9 @@
          </div>
       </section>
 
-      <section id="contact">
-        <h1 class="section-big-title til hidden-xs hidden-sm" data-in-effect="fadeInUp" data-out-effect="fadeInDown">contact</h1><!-- /. large title -->
-        <div class="container">
+      <section id="Contacto">
+         <h1 class="section-big-title til hidden-xs hidden-sm" data-in-effect="fadeInUp" data-out-effect="fadeInDown">Contacto</h1>
+         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="section-holder texture">
@@ -316,22 +317,18 @@
                         <div class="icon-holder i-size-big">
                             <i class="ion-ios-email-outline"></i>
                         </div>
-                        <h3> Contacto </h3>
-                        <form class="form-horizontal" id="contactForm">
+                        <h3>Contacto</h3>
+                        <form class="form-horizontal" id="form_contacto">
                             <div class="form-group">
-
                                <div class="col-sm-6">
-
-                                   <input type="text" class="form-control" id="inputName" placeholder="Tu Nombre" required>
+                                   <input type="text" class="form-control" id="nombre_input" placeholder="Tu Nombre" required>
                                     <span class="form-control-feedback">
                                         <i class="ion-ios-grid-view-outline"></i>
                                     </span>
-
                                 </div>
 
                                 <div class="col-sm-6">
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="Tu correo" required>
-
+                                    <input type="email" class="form-control" id="correo_input" placeholder="Tu correo" required>
                                     <span class="form-control-feedback">
                                         <i class="ion-ios-grid-view-outline"></i>
                                     </span>
@@ -340,15 +337,13 @@
 
                             <div class="form-group">
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputPhone" placeholder="Telefono movil (Opcional)">
-
+                                    <input type="text" class="form-control" id="movil_input" placeholder="Teléfono móvil (Opcional)">
                                     <span class="form-control-feedback">
                                         <i class="ion-ios-grid-view-outline"></i>
                                     </span>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="inputSubject" placeholder="Titulo" required>
-
+                                    <input type="text" class="form-control" id="titulo_input" placeholder="Título" required>
                                     <span class="form-control-feedback">
                                         <i class="ion-ios-grid-view-outline"></i>
                                     </span>
@@ -356,8 +351,7 @@
                             </div>
                             <div class="form-group message">
                                 <div class="col-sm-12">
-                                    <textarea class="form-control" id="inputMessage" rows="4" placeholder="Mensaje" required></textarea>
-
+                                    <textarea class="form-control" id="input_mensaje" rows="4" placeholder="Mensaje" required></textarea>
                                     <span class="form-control-feedback">
                                         <i class="ion-ios-grid-view-outline"></i>
                                     </span>
@@ -374,7 +368,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+         </div>
       </section>
 
       <script src="./assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
@@ -389,6 +383,7 @@
       <script src="./assets/js/jquery.nav.js" type="text/javascript"></script>
       <script src="./assets/js/validator.min.js" type="text/javascript"></script>
       <script src="./assets/js/script.js" type="text/javascript"></script>
+      <script src="./assets/js/contacto.js"></script>
 
       <script type="text/javascript">
          $(window).on('load', function()
