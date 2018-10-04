@@ -18,24 +18,17 @@ function submitForm()
     $.ajax(
     {
         type: "POST",
-        url: "./assets/contacto/contacto.php",
-        data: "name=" + nombre + "&email=" + correo + "&phone=" + movil +"&subject=" + titulo + "&message=" + mensaje,
+        url: "./classes/contacto.php",
+        data: "nombre=" + nombre + "&correo=" + correo + "&movil=" + movil +"&asunto=" + titulo + "&mensaje=" + mensaje,
         success : function(data)
         {
-            if (data == "success")
-            {
-                submitMSG('Mensaje enviado correctamente');
-            } 
-            else
-            {
-                submitMSG(data);
-            }
+            submitMSG();
         }
     });
 }
 
-//submit message
-function submitMSG(msg)
+function submitMSG()
 {
-    $("#msgSubmit").removeClass().addClass('animated fadeIn h3 text-center col-md-6 col-md-offset-3').text(msg);
+    $("#form-submit").removeClass("btn btn-cl");
+    $("#msgSubmit").removeClass().addClass('animated fadeIn h3 text-center col-md-6 col-md-offset-3').text("Mensaje enviado correctamente");
 }

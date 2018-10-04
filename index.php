@@ -68,7 +68,7 @@
                         <a href="https://github.com/salesprendes"><i class="ion-social-github-outline i-size-small"></i></a>
                      </div>
                      <a class="tooltip-cl cv-download" data-tooltip="Descargar curriculum" href="#" onclick="window.open('Curriculum.pdf')">
-                        <i class="ion-ios-download-outline i-size-small"></i> 
+                        <i class="ion-ios-download-outline i-size-small"></i>
                      </a>
                   </div>
                </div>
