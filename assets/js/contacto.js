@@ -18,7 +18,7 @@ function submitForm()
     $.ajax(
     {
         type: "POST",
-        url: "./classes/contacto.php",
+        url: "/classes/Contacto.php",
         data: "nombre=" + nombre + "&correo=" + correo + "&movil=" + movil +"&asunto=" + titulo + "&mensaje=" + mensaje,
         success : function(data)
         {

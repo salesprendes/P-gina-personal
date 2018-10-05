@@ -1,26 +1,31 @@
-<?php 
-   require("./classes/database.php");
-   require("./classes/titulaciones.php");
+<?php
+   require("./classes/Database.php");
+   require('./classes/Titulaciones.php');
 
-   use classes\database;
-   use classes\titulaciones;
+   use classes\Database;
+   use classes\Titulaciones;
+
+   $lenguaje_get = $_GET['lang'];
+   if($lenguaje_get && !file_exists('./lang/' .$lenguaje_get .'.php'))
+      $lenguaje_get = 'es';
+   require('lang/' .$lenguaje_get .'.php');
 ?>
 <!doctype html>
-<html lang="es">
+<html lang=<?php echo $lenguaje_get ?>>
    <head>
       <meta charset="UTF-8">
-      <title>Página Personal - Alvaro Prendes</title>
+      <title><?php echo $lang['titulo']; ?></title>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-      <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
+      <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
       <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,300,300italic,700,500,500italic,700italic,400italic%7CLato:400,700,300' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" href="./assets/css/bootstrap.min.css" type="text/css" />
-      <link rel="stylesheet" href="./assets/css/animate.css" type="text/css" />
-      <link rel="stylesheet" href="./assets/css/ionicons.min.css" type="text/css" />
-      <link rel="stylesheet" href="./assets/css/owl.carousel.min.css" type="text/css" />
-      <link rel="stylesheet" href="./assets/css/owl.transitions.css" type="text/css" />
-      <link rel="stylesheet" href="./assets/css/magnific-popup.css" type="text/css" />
-      <link rel="stylesheet" href="./style.css" type="text/css" />
+      <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" />
+      <link rel="stylesheet" href="/assets/css/animate.css" type="text/css" />
+      <link rel="stylesheet" href="/assets/css/ionicons.min.css" type="text/css" />
+      <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" type="text/css" />
+      <link rel="stylesheet" href="/assets/css/owl.transitions.css" type="text/css" />
+      <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css" />
+      <link rel="stylesheet" href="/style.css" type="text/css" />
    </head>
 
    <body>
@@ -31,14 +36,39 @@
          <div class="box-four"></div>
       </div>
 
-      <nav class="menu">
-         <ul class="menu-ul">
-            <li> <a href="#Informacion">Acerca de mí</a> </li>
-            <li> <a href="#Educacion">Educación</a> </li>
-            <li> <a href="#Contacto">Contacto</a> </li>
-         </ul>
-         <div class="menu-holder">
-            <div class="menu-bar"></div>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_pagina">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand"><?php echo $lang['titulo']; ?></a>
+            </div>
+            <div class="navbar-collapse collapse" id="menu_pagina">
+               <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Accesos rápidos
+                        <span class="caret"></span>
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li> <a href="#Informacion"><?php echo $lang['menu_texto_informacion']; ?></a> </li>
+                        <li> <a href="#Educacion"><?php echo $lang['menu_texto_estudios']; ?></a> </li>
+                        <li> <a href="#Contacto"><?php echo $lang['menu_texto_contacto']; ?></a> </li>
+                     </ul>
+                  </li>
+                  <li class="dropdown">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $lang['menu_texto_idiomas']; ?>
+                        <span class="caret"></span>
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li><a href="/es"><?php echo $lang['menu_texto_idiomas_castellano']; ?></a></li>
+                        <li><a href="/ca"><?php echo $lang['menu_texto_idiomas_catalan']; ?></a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
          </div>
       </nav>
 
@@ -59,15 +89,15 @@
                      	<img src="https://instagram.fmad3-1.fna.fbcdn.net/vp/f9a06f9e3f530b6c0913bd51bcb15b86/5C41A376/t51.2885-19/s150x150/41820001_1881338575290669_8777588477735731200_n.jpg" class="img-responsive img-circle" alt="Foto Personal">
                      </div>
                      <div class="sep-mini"></div>
-                     <h4> Nombre: Alvaro Prendes </h4>
-                     <h4> Nacionalidad: Española </h4>
+                     <h4><?php echo $lang['informacion_nombre']; ?>: Alvaro Prendes</h4>
+                     <h4><?php echo $lang['informacion_nacionalidad']; ?>: Española</h4>
                      <div class="social-links">
                         <a href="https://twitter.com/salesprendes"><i class="ion-social-twitter-outline i-size-small"></i></a>
                         <a href="https://www.facebook.com/salesprendes"><i class="ion-social-facebook-outline i-size-small"></i></a>
                         <a href="https://www.instagram.com/_.alvaro.prendes._/"><i class="ion-social-instagram-outline i-size-small"></i></a>
                         <a href="https://github.com/salesprendes"><i class="ion-social-github-outline i-size-small"></i></a>
                      </div>
-                     <a class="tooltip-cl cv-download" data-tooltip="Descargar curriculum" href="#" onclick="window.open('Curriculum.pdf')">
+                     <a class="tooltip-cl cv-download mfp-iframe popup-it" data-tooltip="Descargar currículum" href="./Curriculum.pdf">
                         <i class="ion-ios-download-outline i-size-small"></i>
                      </a>
                   </div>
@@ -78,13 +108,9 @@
                      <div class="icon-holder i-size-big">
                         <i class="ion-ios-compose-outline"></i>
                      </div>
-                     <h3 class="section-title">Acerca de mí</h3>
-                     <p>
-                        Bienvenido/a a mi sitio web. Me encanta la informática sobretodo el ámbito de la programación, mi otra gran pasión es el pentesting, también tengo experiencia en la seguridad de servidores escalar permisos y rootearlos. Con mi experiencia personal he adquirido conocimientos sobre deface web por inyección SQL y xPath, otros pequeños conocimientos sobre DDOS por sockets. Se podría decir que me encanta la programación ligada a la seguridad ya que es entretenida y casi nunca hay un fin.
-                     </p>
-                     <p>
-                     	"El mayor enemigo de la seguridad informática son los usuarios"
-                     </p>
+                     <h3 class="section-title"><?php echo $lang['panel_presentacion_titulo']; ?></h3>
+                     <p align="justify"><?php echo $lang['panel_presentacion_texto']; ?></p>
+                     <p align="justify">"<?php echo $lang['panel_presentacion_frase']; ?>"</p>
                      <div class="icon-holder i-size-small">
                         <i class="ion-ios-baseball-outline"></i>
                      </div>
@@ -245,7 +271,7 @@
                      <h3> Estudios formales</h3>
                      <div class="time-line">
                         <div class="row">
-                           <?php $titulaciones = new titulaciones(); ?>
+                           <?php $titulaciones = new Titulaciones(); ?>
                            <?php foreach($titulaciones -> get_Obtener_Todas_Titulaciones() as $fila): ?>
                               <?php if($fila): ?>
                                  <div class="col-sm-12">
@@ -302,7 +328,7 @@
                         <h5>Dirección: Carrer de Pau Casals, 12, Salt, Girona</h5>
                         <h5>Email: salesprendes@gmail.com</h5>
                         <h5>Móvil: 616 729 303</h5>
-                        <a href="https://maps.google.com/maps?q=Carrer+de+Pau+Casals,+12,+17190+Salt,+Girona" class="mfp-iframe popup-it"><h4 class="map-open">Abrir mapa</h4></a>
+                        <a href="https://maps.google.com/maps?q=Carrer+de+Pau+Casals,+12,+17190+Salt,+Girona" class="mfp-iframe popup-it"><h4 class="map-open"><i class="ion-map i-size-small"></i></h4></a>
                         <div class="social-links">
                            <a href="https://twitter.com/salesprendes"><i class="ion-social-twitter-outline i-size-small"></i></a>
                            <a href="https://www.facebook.com/salesprendes"><i class="ion-social-facebook-outline i-size-small"></i></a>
@@ -371,19 +397,22 @@
          </div>
       </section>
 
-      <script src="./assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
-      <script src="./assets/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
-      <script src="./assets/js/jquery.lettering.js" type="text/javascript"></script>
-      <script src="./assets/js/jquery.textillate.js" type="text/javascript"></script>
-      <script src="./assets/js/owl.carousel.min.js" type="text/javascript"></script>
-      <script src="./assets/js/jquery.waypoints.min.js" type="text/javascript"></script>
-      <script src="./assets/js/jquery.counterup.js" type="text/javascript"></script>
-      <script src="./assets/js/wow.min.js" type="text/javascript"></script>
-      <script src="./assets/js/smoothscroll.js" type="text/javascript"></script>
-      <script src="./assets/js/jquery.nav.js" type="text/javascript"></script>
-      <script src="./assets/js/validator.min.js" type="text/javascript"></script>
-      <script src="./assets/js/script.js" type="text/javascript"></script>
-      <script src="./assets/js/contacto.js"></script>
+      <?php include './footer.php'; ?>
+
+      <script src="/assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+      <script src="/assets/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
+      <script src="/assets/js/jquery.lettering.js" type="text/javascript"></script>
+      <script src="/assets/js/jquery.textillate.js" type="text/javascript"></script>
+      <script src="/assets/js/owl.carousel.min.js" type="text/javascript"></script>
+      <script src="/assets/js/jquery.waypoints.min.js" type="text/javascript"></script>
+      <script src="/assets/js/jquery.counterup.js" type="text/javascript"></script>
+      <script src="/assets/js/wow.min.js" type="text/javascript"></script>
+      <script src="/assets/js/smoothscroll.js" type="text/javascript"></script>
+      <script src="/assets/js/jquery.nav.js" type="text/javascript"></script>
+      <script src="/assets/js/validator.min.js" type="text/javascript"></script>
+      <script src="/assets/js/script.js" type="text/javascript"></script>
+      <script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
+      <script src="/assets/js/contacto.js" type="text/javascript"></script>
 
       <script type="text/javascript">
          $(window).on('load', function()
