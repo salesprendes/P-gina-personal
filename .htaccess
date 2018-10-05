@@ -1,0 +1,16 @@
+php_value display_errors 1
+
+Options -Indexes +FollowSymlinks
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^./]+)/$ index.php?lang=$1 [L]
+
+RewriteCond %{HTTP:Accept-Language} ^(es|ca|en) [NC]
+RewriteRule ^$ /%1 [L,R=301]
+
+# agrega slash al final
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^.*[^/]$ /$0/ [L,R=301]
