@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 03-10-2018 a las 10:23:43
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.0.26
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 16-02-2023 a las 07:58:39
+-- Versión del servidor: 8.0.31
+-- Versión de PHP: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `id7335166_pagina_curriculum`
+-- Base de datos: `pagina_curriculum`
 --
 
 -- --------------------------------------------------------
@@ -28,46 +27,59 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `estudios`
 --
 
-CREATE TABLE `estudios` (
-  `id` int(4) NOT NULL,
-  `nombre_titulo` varchar(75) COLLATE utf8_spanish_ci NOT NULL,
-  `calificacion_estudios` decimal(4,2) DEFAULT NULL,
-  `nombre_centro_estudios` varchar(35) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `poblacion_centro_estudios` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `provincia_centro_estudios` varchar(40) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `fecha_comienzo_estudios` tinyint(2) NOT NULL,
-  `fecha_fin_estudios` tinyint(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+DROP TABLE IF EXISTS `estudios`;
+CREATE TABLE IF NOT EXISTS `estudios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(75) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `calificacion` decimal(4,2) DEFAULT NULL,
+  `nombre_centro_estudios` varchar(55) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `poblacion_centro_estudios` varchar(65) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `provincia_centro_estudios` varchar(55) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `fecha_comienzo_estudios` date NOT NULL COMMENT 'Fecha Inicio de estudios',
+  `fecha_fin_estudios` date DEFAULT NULL COMMENT 'Fecha fin de estudios',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `estudios`
 --
 
-INSERT INTO `estudios` (`id`, `nombre_titulo`, `calificacion_estudios`, `nombre_centro_estudios`, `poblacion_centro_estudios`, `provincia_centro_estudios`, `fecha_comienzo_estudios`, `fecha_fin_estudios`) VALUES
-(1, 'CFGS - Administración de sistemas en red', NULL, 'IES Montilivi', 'Girona', 'Girona', 18, NULL),
-(2, 'CFGS - Desarrollo de Aplicaciones Multiplataforma', 8.70, 'IES Rafael Campalans', 'Anglés', 'Girona', 16, 18),
-(3, 'Prueba de Acceso a Grado Superior', 8.00, NULL, NULL, NULL, 16, NULL),
-(4, 'CFGM - Sistemas Microinformáticos y Redes', 7.50, 'IES Rafael Campalans', 'Anglés', 'Girona', 13, 15);
+INSERT INTO `estudios` (`id`, `nombre`, `calificacion`, `nombre_centro_estudios`, `poblacion_centro_estudios`, `provincia_centro_estudios`, `fecha_comienzo_estudios`, `fecha_fin_estudios`) VALUES
+(1, 'CFGS - Desarrollo de Aplicaciones Multiplataforma', '8.00', 'INS Montilivi', 'Girona', 'Girona', '2016-09-12', '2019-05-22'),
+(2, 'Prueba de Acceso a Grado Superior', '8.00', 'GENCAT', 'Cataluña', 'Cataluña', '2016-05-22', NULL),
+(3, 'CFGM - Sistemas Microinformáticos y Redes', '7.50', 'INS Rafael Campalans', 'Anglés', 'Girona', '2013-09-12', '2015-05-22'),
+(4, 'Prueba de Acceso a Grado Medio', '6.50', 'GENCAT', 'Cataluña', 'Cataluña', '2013-05-22', NULL),
+(5, '98-366 MTA Networking Fundamentals', '84.00', 'CERTIPORT/MICROSOFT', 'Online', 'Online', '2019-04-23', NULL),
+(6, '98-365 MTA Windows® Server Administration Fundamentals', '70.00', 'CERTIPORT/MICROSOFT', 'Online', 'Online', '2019-04-19', NULL);
+
+-- --------------------------------------------------------
 
 --
--- Índices para tablas volcadas
+-- Estructura de tabla para la tabla `habilidades`
 --
 
---
--- Indices de la tabla `estudios`
---
-ALTER TABLE `estudios`
-  ADD PRIMARY KEY (`id`);
+DROP TABLE IF EXISTS `habilidades`;
+CREATE TABLE IF NOT EXISTS `habilidades` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8mb3_spanish_ci NOT NULL,
+  `porcentaje` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- Volcado de datos para la tabla `habilidades`
 --
 
---
--- AUTO_INCREMENT de la tabla `estudios`
---
-ALTER TABLE `estudios`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+INSERT INTO `habilidades` (`id`, `nombre`, `porcentaje`) VALUES
+(1, 'CSS', 50),
+(2, 'HTML | PHP | Bootstrap', 100),
+(3, 'Windows | Linux | MacOS', 100),
+(4, 'Pentesting', 70),
+(5, 'Java', 95),
+(6, 'c++', 70),
+(7, 'C#', 90),
+(8, 'Angular-4 | Ionic-3', 40),
+(9, 'MYSQL', 90);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

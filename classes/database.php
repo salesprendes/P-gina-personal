@@ -15,7 +15,7 @@
             {
                 return self::$conexion;
             }
-            self::$conexion = new PDO('mysql:host=localhost;dbname=pagina_curriculum', 'root', 'root');
+            self::$conexion = new PDO('mysql:host=localhost;dbname=pagina_curriculum', 'root', '');
             self::$conexion->exec("SET NAMES utf8");
             self::$conexion->exec("SET CHARACTER SET utf8");
             return self::$conexion;

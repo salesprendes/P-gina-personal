@@ -9,17 +9,17 @@ $("#form_contacto").validator().on('submit', function (event)
 
 function submitForm()
 {
-    var nombre  = $("#nombre_input").val();
-    var movil   = $("#movil_input").val();
-    var correo  = $("#correo_input").val();
-    var titulo 	= $("#titulo_input").val();
-    var mensaje = $("#input_mensaje").val();
+    var nombre  = $("#nombre_contacto").val();
+    var movil   = $("#movil_contacto").val();
+    var correo  = $("#correo_contacto").val();
+    var asunto 	= $("#asunto_contacto").val();
+    var mensaje = $("#mensaje_contacto").val();
 
     $.ajax(
     {
         type: "POST",
         url: "/classes/Contacto.php",
-        data: "nombre=" + nombre + "&correo=" + correo + "&movil=" + movil +"&asunto=" + titulo + "&mensaje=" + mensaje,
+        data: "nombre=" + nombre + "&correo=" + correo + "&movil=" + movil +"&asunto=" + asunto + "&mensaje=" + mensaje,
         success : function(data)
         {
             submitMSG();
